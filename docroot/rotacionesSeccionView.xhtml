@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+
+  <ui:composition template="./headerTeamWorkPlannerView.xhtml">
+	<ui:define name="content">
+	 <center>
+
+	  <h:form align="left" >	
+		<h:dataTable value="#{rotacionDiaria.rotacionListaVista}" var="item" bgcolor="#F1F1F1" border="0" first="0" width="60%" frame="hsides" rules="all"  >
+ 			<f:facet name="header">			
+  			<h:outputText align="center" value="ROTACION DEL DIA:" />		
+  			</f:facet> 
+  			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Instalacion"/>
+   				</f:facet> 
+     			<h:outputText value="#{item.puesto.instalacion.nombre}" />
+ 			</h:column>
+ 			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Puesto"/>
+   				</f:facet> 
+     			<h:outputText value="#{item.puesto.nombre}" />
+ 			</h:column>
+ 			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Nombre operario"/>
+   				</f:facet>
+     			<h:outputText value="#{item.operario.nombre}" />
+ 			</h:column>
+ 			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Apellidos operario"/>
+   				</f:facet>
+     			<h:outputText value="#{item.operario.apellidos}" />
+ 			</h:column>
+ 		</h:dataTable>
+ 	  </h:form>
+ 	   		<br/>
+ 		<h:form > 	
+		<h:commandLink action="#{rotacionDiaria.previousScreen}" value="Anterior" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink action="#{rotacionDiaria.nextScreen}" value="Siguiente" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink value="Menu rotaciones" action="menuRotacionesView.xhtml" />
+	    </h:form>	    
+ 	  </center>
+	</ui:define>
+  </ui:composition>
+</html>

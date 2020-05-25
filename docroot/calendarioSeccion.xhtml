@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+<ui:composition template="./headerTeamWorkPlannerView.xhtml">
+	<ui:define name="content">
+	
+    	<center>
+    	<h:form>
+    	<table>
+    	<tr>
+    	<td><h2><h:outputText value="#{calendarioSeccion.ano}"></h:outputText></h2></td>
+    	</tr>
+    	</table>
+    	</h:form>
+		<h:form>
+		<table class="mes" bgcolor="Black" border="1" width="28%" >
+		
+		<thead>		
+		<tr>
+		<th class="mes-header" scope="col"><font color="Yellow">TURNO</font></th>
+		<th class="mes-header" scope="col"><font color="Yellow">FECHA INICIO</font></th>
+		<th class="mes-header" scope="col"><font color="Yellow">FECHA FIN</font></th>
+		</tr>
+
+		</thead>
+		<h:body>		
+        <tr>
+        	<td width="4%">
+				<font color="white">1</font>
+			</td>
+			<td width="4%">
+				<font color="white"><h:outputText value="#{calendarioSeccion.turno1}" /></font>
+			</td>
+			<td width="4%">
+				<font color="white"><h:outputText value="#{calendarioSeccion.turno1F}" /></font>
+			</td>
+		</tr>
+		<tr>
+			<td width="4%">
+				<font color="white">2</font>
+			</td>
+			<td width="4%">
+				<font color="white"><h:outputText value="#{calendarioSeccion.turno2}" /></font>
+			</td>
+			<td width="4%">
+				<font color="white"><h:outputText value="#{calendarioSeccion.turno2F}" /></font>
+			</td> 
+		</tr>
+		<tr>
+			<td width="4%">
+				<font color="white">3</font>
+			</td>             
+			<td width="4%">
+				<font color="white"><h:outputText value="#{calendarioSeccion.turno3}" /></font>
+			</td>
+			<td width="4%">
+				<font color="white"><h:outputText value="#{calendarioSeccion.turno3F}" /></font>
+			</td>
+		</tr>
+		<tr>
+			<td width="4%">
+				<font color="white">4</font>
+			</td>
+			<td width="4%">
+				<font color="white"><h:outputText value="#{calendarioSeccion.turno4}" /></font>
+			</td>
+			<td width="4%">
+				<font color="white"><h:outputText value="#{calendarioSeccion.turno4F}" /></font>
+			</td>
+		</tr>
+		<tr>
+			<td width="4%">
+				<font color="white">5</font>
+			</td>
+			<td width="4%">
+				<font color="white"><h:outputText value="#{calendarioSeccion.turno5}" /></font>
+			</td>             
+			<td width="4%">
+				<font color="white"><h:outputText value="#{calendarioSeccion.turno5F}" /></font>
+			</td>
+		</tr>
+		<tr>
+			<td width="4%">
+				<font color="white">6</font>
+			</td>
+			<td width="4%">
+				<font color="white"><h:outputText value="#{calendarioSeccion.turno6}" /></font>
+			</td>
+			<td width="4%">
+				<font color="white"><h:outputText value="#{calendarioSeccion.turno6F}" /></font>
+			</td>
+		</tr>
+		<tr>
+			<td width="4%">
+				<font color="white">7</font>
+			</td>
+			<td width="4%">
+				<font color="white"><h:outputText value="#{calendarioSeccion.turno7}" /></font>
+			</td>
+			<td width="4%">
+				<font color="white"><h:outputText value="#{calendarioSeccion.turno7F}" /></font>
+			</td>             
+        </tr>
+         <tr>
+			<td width="4%">
+				<font color="white">8</font>
+			</td>
+			<td width="4%">
+				<font color="white"><h:outputText value="#{calendarioSeccion.turno8}" /></font>
+			</td>
+			<td width="4%">
+				<font color="white"><h:outputText value="#{calendarioSeccion.turno8F}" /></font>
+			</td>
+		</tr>
+		<tr>
+			<td width="4%">
+				<font color="white">9</font>
+			</td>
+			<td width="4%">
+				<font color="white"><h:outputText value="#{calendarioSeccion.turno9}" /></font>
+			</td>
+			<td width="4%">
+				<font color="white"><h:outputText value="#{calendarioSeccion.turno9F}" /></font>
+			</td> 
+		 </tr>
+         <tr>
+			<td width="4%">
+				<font color="white">10</font>
+			</td>
+			<td width="4%">
+				<font color="white"><h:outputText value="#{calendarioSeccion.turno10}" /></font>
+			</td>
+			<td width="4%">
+				<font color="white"><h:outputText value="#{calendarioSeccion.turno10F}" /></font>
+			</td>
+		</tr>
+ 
+		</h:body>
+        </table>
+		<br/>
+		<h:form rendered="#{usuario.rol eq 'rrhh'}">
+		<br/>
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="listaCalendariosEmpresa.xhtml"
+							value="Lista calendarios"/>
+				</div>
+		<br/>
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="creacionTurnosVacacionalesAnualesView.xhtml"
+							value="Crear turnos vacacionales"/>
+				</div>
+		<br/>
+					<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="listaTurnosVacacionalesView.xhtml"
+							value="Mantenimiento de turnos vacacionales"/>
+							<f:param name="idCal" value="#{calendarioEmpresa.ano}" />
+				</div>
+		<br/>
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="crearDiaFestivoView.xhtml"
+							value="Añadir festivo"/>
+				</div>
+			<br/>
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="listaDiaFestivosView.xhtml"
+							value="Mantenimiento de festivos"/>
+				</div>
+			</h:form>
+		</h:form>
+			<h:form>					
+			<p align="center">
+				<h:commandLink value="Menú calendarios" action="menuCalendariosView.html" />
+			</p>
+			<p align="center">
+				<h:commandLink value="Menú principal" action="homeTeamWorkPlannerView.html" />
+			</p>
+			</h:form>
+		</center>	
+	</ui:define>
+</ui:composition>
+</html>

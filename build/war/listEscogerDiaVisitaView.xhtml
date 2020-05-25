@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+	
+	<h:body>
+	<ui:composition template="./headerView.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<div align="center">
+				<table cellpadding="0" cellspacing="0" border="0" style="margin-top:30px;" width="350" id="table1">
+					<tr>
+						<td width="155">
+							<p align="left"/><i><b><font size="4" face="Century">Dia:</font></b></i>
+						</td>
+						<td>
+							<p align="right"/><i><b><font size="2" face="Century" color="blue" >dd/mm/aaaa -> 2020-01-10</font></b></i> 
+							<p align="left"/><h:inputText value="#{listCalVisites.fechaString}" /> <!-- Relleno la fecha del listAllSchreduledVisitsBean -->
+						</td>
+					</tr>
+				</table> 	
+				<div style="padding: 15px;">
+					<h:commandButton action="#{listCalVisites.visitsListDayfuntion}" value="Llistar" />
+				</div>
+			</div>
+		</h:form>
+		
+		<div align="center">
+			<table cellpadding="0" cellspacing="0" border="0" style="margin-top:30px;" id="table1">
+			<tr>
+				<td colspan="2">
+					<!-- listAllSchreduledVisitsBean -->
+					<h:dataTable value="#{listCalVisites.visitListView}"  
+						var="item" bgcolor="#F1F1F1"
+						border="0" width="600" rules="all"  >
+				 			<f:facet name="header">			
+				  			<h:outputText align="center" value="Llistat de les meves visites" />		
+				  			</f:facet> 
+				 			<h:column>
+				   				<f:facet name="header">
+				   					<h:outputText value="Id Visita:"/>
+				   				</f:facet> 
+				     			<h:outputText value="#{item.id}" />
+				 			</h:column>
+				 			<h:column>
+				   				<f:facet name="header">
+				   					<h:outputText value="Date:"/>
+				   				</f:facet>
+				     			<h:outputText value="#{item.date}" />
+				 			</h:column>
+				 			<h:column>
+				   				<f:facet name="header">
+				   					<h:outputText value="Time:"/>
+				   				</f:facet>
+				     			<h:outputText value="#{item.time}" />
+				 			</h:column>
+				 			<h:column>
+				   				<f:facet name="header">
+				   					<h:outputText value="Observations:"/>
+				   				</f:facet>
+				     			<h:outputText value="#{item.observations}" />
+				 			</h:column>
+				 			<h:column>
+				   				<f:facet name="header">
+				   					<h:outputText value="Result:"/>
+				   				</f:facet>
+				     			<h:outputText value="#{item.result}" />
+				 			</h:column>
+				 	</h:dataTable>
+				</td>
+			</tr>
+			</table> 	
+			
+			
+			<div style="padding: 15px;margin-top:20px;">
+				<a href="homeView.xhtml">Tornar a la pàgina principal</a>
+			</div>
+			
+		</div>
+	</ui:define>
+	</ui:composition>
+</h:body>
+</html>

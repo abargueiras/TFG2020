@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+   <f:metadata>
+   <f:viewParam name="idCal" value="#{calendarioEmpresa.ano}" />
+   </f:metadata>
+<ui:composition template="./headerTeamWorkPlannerView.xhtml">
+	<ui:define name="content">
+	   	<center>
+    	<table>
+    	<tr>
+    	<td><h2><h:outputText value="#{calendarioEmpresa.ano}"></h:outputText></h2></td>
+    	<td><h2><h:outputText value="#{calendarioEmpresa.nombreMes}"></h:outputText></h2></td>
+    	</tr>
+    	</table>
+		<h:form>
+		<table class="mes" bgcolor="Black" border="1" width="28%" >
+		
+		<thead>		
+		<tr>
+		<th class="mes-header" scope="col"><font color="Yellow">Lun</font></th>
+		<th class="mes-header" scope="col"><font color="Yellow">Mar</font></th>
+		<th class="mes-header" scope="col"><font color="Yellow">Mie</font></th>
+		<th class="mes-header" scope="col"><font color="Yellow">Jue</font></th>
+		<th class="mes-header" scope="col"><font color="Yellow">Vie</font></th>
+		<th class="mes-header" scope="col"><font color="Yellow">Sab</font></th>
+		<th class="mes-header" scope="col"><font color="Yellow">Dom</font></th>
+		</tr>
+
+		</thead>
+		<h:body>
+		<!-- Semana 1 -->
+        <tr>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia1f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia1}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia2f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia2}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia3f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia3}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia4f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia4}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia5f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia5}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia6f}" /></font>
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia6}" /></font>
+			</td> 
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia7f}" /></font>
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia7}" /></font>
+			</td>             
+        </tr>
+        <!-- semana 2 -->
+                <tr>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia8f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia8}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia9f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia9}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia10f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia10}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia11f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia11}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia12f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia12}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia13f}" /></font>
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia13}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia14f}" /></font>
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia14}" /></font>
+			</td>             
+        </tr>
+        <!-- Semana 3 -->
+                <tr>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia15f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia15}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia16f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia16}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia17f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia17}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia18f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia18}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia19f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia19}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia20f}" /></font>
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia20}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia21f}" /></font>
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia21}" /></font>
+			</td>             
+        </tr>
+        <!-- Semana 4 -->
+                <tr>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia22f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia22}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia23f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia23}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia24f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia24}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia25f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia25}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia26f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia26}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia27f}" /></font>
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia27}" /></font>
+			</td> 
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia28f}" /></font>
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia28}" /></font>
+			</td>             
+        </tr>
+        <!-- Semana 5 -->
+                <tr>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia29f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia29}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia30f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia30}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia31f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia31}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia32f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia32}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia33f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia33}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia34f}" /></font>
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia34}" /></font>
+			</td> 
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia35f}" /></font>
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia35}" /></font>
+			</td>            
+        </tr>
+                <!-- Semana 6 -->
+                <tr>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia36f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia36}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia37f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia37}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia38f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia38}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia39f}" /></font>
+				<font color="white"><h:outputText value="#{calendarioEmpresa.dia39}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia40f}" /></font>
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia40}" /></font>
+			</td>
+			<td width="4%">
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia41f}" /></font>
+				<font color="red"><h:outputText value="#{calendarioEmpresa.dia41}" /></font>
+			</td>
+			<td width="4%">
+			    <p align="center"/><font color="red"><h:outputText value="#{calendarioEmpresa.resultadoINC}"/> </font>
+	        	<p align="center"/><font color="green"><h:outputText value="#{calendarioEmpresa.resultadoCOR}"/> </font>
+			</td>            
+        </tr>
+        <!-- Fin mes -->
+		</h:body>
+        </table>
+        <h:commandLink action="#{calendarioEmpresa.prevAno}" value="Año anterior" />
+		<h:outputText value="&nbsp;&nbsp;&nbsp;" />
+		<h:commandLink action="#{calendarioEmpresa.prevMes}" value="Mes anterior" />
+		<h:outputText value="&nbsp;&nbsp;&nbsp;" />
+		<font color="blue"><h:outputText value="  Navegar en calendario " /></font>
+		<h:outputText value="&nbsp;&nbsp;&nbsp;" />
+		<h:commandLink action="#{calendarioEmpresa.proxMes}" value="Mes siguiente" />
+		<h:outputText value="&nbsp;&nbsp;&nbsp;" />
+		<h:commandLink action="#{calendarioEmpresa.proxAno}" value="Año siguiente" />
+		<br/>
+		<h:form rendered="#{usuario.rol eq 'rrhh'}">
+		<br/>
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="center" 
+							action ="creacionTurnosVacacionalesAnualesView.xhtml"
+							value="          Crear turnos vacacionales         "/>
+				</div>
+		<br/>
+					<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="center" 
+							action ="listaTurnosVacacionalesView.xhtml"
+							value="Mantenimiento de turnos vacacionales"/>
+							<f:param name="idCal" value="#{calendarioEmpresa.ano}" />
+				</div>
+		<br/>
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="center" 
+							action ="crearDiaFestivoView.xhtml"
+							value="                   Añadir festivo                     "/>
+				</div>
+			<br/>
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="center" 
+							action ="listaDiaFestivosView.xhtml"
+							value="          Mantenimiento de festivos           "/>
+				</div>
+			</h:form>
+		</h:form>
+			<h:form>
+			<p align="center">
+				<h:commandLink value="Lista calendarios" action="listaCalendariosEmpresa.xhtml" />
+			</p>								
+			<p align="center">
+				<h:commandLink value="Menú calendarios" action="menuCalendariosView.html" />
+			</p>
+			<p align="center">
+				<h:commandLink value="Menú principal" action="homeTeamWorkPlannerView.html" />
+			</p>
+			</h:form>
+		</center>	
+	</ui:define>
+</ui:composition>
+</html>

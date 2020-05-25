@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="./headerTeamWorkPlannerView.xhtml">
+	<ui:define name="content">
+	
+		<style>
+			.boto_opcio_menu
+			{
+				margin-top:25px;
+			}
+		</style>
+		
+		<div style="display: block;vertical-align: top;text-align: center;width:400px;margin:auto;">
+		
+		<center>
+		
+		<table style="display: inline-block;" >
+		<tr>
+			<td rowspan="1" colspan="1">
+				<div class="content" align="center">
+					<h1>FESTIVO A CREAR:</h1>
+				</div>
+			</td>
+		</tr>	
+		</table>
+            <h:form >
+ 			<div align="center">
+				<table width="350" id="table1" cellpadding="0" cellspacing="0" border="0" style="margin-top:2px;" align="center">
+					<tr>
+						<td width="155">
+							<p align="left"/><i><b><font size="4" face="Century">FECHA:</font></b></i>
+						</td>
+						<td>
+							<p align="left"/><h:inputText value="#{calendarioEmpresa.fechaFestivo}" />
+							<i><b><font size="2" face="Century" color="blue" >AAAA-MM-DD -> 2020-01-31</font></b></i> 
+						</td>
+					</tr>
+					<tr>
+						<td width="155">
+							<p align="left"/><i><b><font size="4" face="Century">FESTIVIDAD:</font></b></i>
+						</td>
+						<td>
+						<p align="left"/><h:inputText value="#{calendarioEmpresa.festividadFestivo}" />
+						</td>
+					</tr>
+					</table>
+					</div>
+					<div>
+					<br/>
+					<h:commandButton 
+							action ="#{calendarioEmpresa.crearDiaFestivo}" value="CREAR"/>
+				   </div>
+ 		   </h:form>
+ 
+	    	<h:form>
+	        	<div>
+	        	<p align="center"/><font color="red"><h:outputText value="#{calendarioEmpresa.resultadoINC}"/> </font>
+	        	<p align="center"/><font color="green"><h:outputText value="#{calendarioEmpresa.resultadoCOR}"/> </font>
+        		</div>
+	    	</h:form>
+				
+			<h:form>
+			<p align="center">
+				<h:commandLink value="Ver calendario" action="calendarioEmpresaAnual.html" />
+			</p>
+			<p align="center">
+				<h:commandLink value="Menú calendario empresa" action="menuCalendariosView.html" />
+			</p>
+			<p align="center">
+				<h:commandLink value="Menú principal" action="homeTeamWorkPlannerView.html" />
+			</p>
+			</h:form>
+ 		   </center>
+			</div>		
+	</ui:define>
+</ui:composition>
+</html>

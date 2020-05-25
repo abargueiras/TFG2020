@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+		<h:form>
+		<center>
+			<h:graphicImage border="0" url="resources/images/TeamWorkPlanner.gif" width="300"/>
+		</center>
+				<div align="center">
+				<table cellpadding="0" cellspacing="0" border="0" style="margin-top:30px;" width="350" id="table1">
+				<tr>
+					<td width="175">
+						<p align="left"/><i><b><font size="4" face="Century">Núm. Trabajador:</font></b></i>
+					</td>
+					<td>
+						<p align="left"/><h:inputText value="#{usuario.id}" />
+					</td>
+				</tr>
+				<tr>
+					<td width="175">
+						<p align="left"/><i><b><font size="4" style="padding-right: 20px;" face="Century">Contraseña:</font></b></i>
+					</td>
+					<td>
+						<p align="left"/><h:inputSecret value="#{usuario.password}" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<center>
+							<h:commandButton style="margin-top:30px;" align="center" 
+							action ="#{usuario.login}" value="ENTRAR"/>
+						</center>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<div style="margin-top:20px;color:red;">
+							<h:outputText value="#{usuario.resultado}"/>
+						</div>
+					</td>
+				</tr>
+				</table> 	
+				
+				<div style="margin-top: 30px;">
+				<center>
+				<h:graphicImage border="0" url="resources/images/monigotes.gif" width="150"/>
+				</center>
+				</div>
+				
+				
+			</div>
+		</h:form>
+</html>

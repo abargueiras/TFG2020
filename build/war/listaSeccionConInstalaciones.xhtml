@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+
+  <ui:composition template="./headerTeamWorkPlannerView.xhtml">
+	<ui:define name="content">
+	 <center>
+	  <h:form align="left">
+	  <h:inputText value="#{listaSeccionesInstalacion.nomBuscado}"/> 
+	  <h:commandButton value="¡Buscar sección!" action="#{listaSeccionesInstalacion.listaSeccionesFiltro()}"/>
+	  <h:commandButton value="¡Limpiar filtro!" action="#{listaSeccionesInstalacion.limpiaFiltroLista}"/>
+	  <font color="red"><h:outputText value="#{listaSeccionesInstalacion.resultadoInc}" /></font>
+	  <font color="green"><h:outputText value="#{listaSeccionesInstalacion.resultadoCor}" /></font>
+	  </h:form>
+	   <br/>
+	  <h:form align="left" >	
+		<h:dataTable value="#{listaSeccionesInstalacion.seccionesInstalacionListaVista}" var="item" bgcolor="#F1F1F1" border="0" first="0" width="50%" frame="hsides" rules="all"  >
+ 			<f:facet name="header">			
+  			<h:outputText align="center" value="Listado de secciones:" />		
+  			</f:facet> 
+ 			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Identificador"/>
+   				</f:facet> 
+     			<h:outputText value="#{item.id}" />
+ 			</h:column>
+ 			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Nombre"/>
+   				</f:facet>
+     			<h:outputText value="#{item.nombre}" />
+ 			</h:column>
+  			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Turno"/>
+   				</f:facet>
+     			<h:outputText value="#{item.turno}" />
+ 			</h:column>	
+ 			<h:column>
+ 			   	<f:facet name="header">
+   					<h:outputText value="Opciones"/>
+   				</f:facet> 
+ 			<p>
+ 			<h:form rendered="#{usuario.rol eq 'jefeAlmacen'}">
+ 			        <h:link outcome="verInstalacionesSeccionView" value="Asociación instalaciones" >
+						<f:param name="idSeccion" value="#{item.id}" />						
+					</h:link>
+			</h:form>
+		
+			</p>				
+ 			</h:column>
+ 		</h:dataTable>
+ 	  </h:form>
+ 	   		<br/>
+ 		<h:form rendered="#{usuario.rol eq 'jefeAlmacen'}"> 	
+		<h:commandLink action="#{listaSeccionesInstalacion.previousScreen}" value="Anterior" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink action="#{listaSeccionesInstalacion.nextScreen}" value="Siguiente" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink value="Menu equipos" action="menuEquiposView.xhtml" />
+	    </h:form>
+	  
+ 	  </center>
+	</ui:define>
+  </ui:composition>
+</html>

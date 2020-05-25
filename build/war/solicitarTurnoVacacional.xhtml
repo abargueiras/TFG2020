@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+<ui:composition template="./headerTeamWorkPlannerView.xhtml">
+	<ui:define name="content">
+	
+	    <center>
+        <div>
+    	<h2><h:outputText value="#{calendarioPersonal.anoCal}"></h:outputText></h2>
+    	</div>
+    	<h:form>
+    	
+    	<div>
+    	      <i><b><font size="3" face="Century" >Turno verano &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></b></i> 
+    		  <h:selectOneMenu id="combo1" value="#{calendarioPersonal.turnoVerFecha}">
+              <f:selectItem itemLabel="Seleccionar ..."  noSelectionOption="false"/>
+              <f:selectItems value="#{calendarioPersonal.periodosVacaVer}" var="turnoVer" itemValue="#{turnoVer.fechaInicio}" itemLabel="#{turnoVer.fechaInicio}" />
+              <f:ajax execute="combo1" render="textbox1" />
+              </h:selectOneMenu>
+              <h:inputText id="textbox1" value="#{calendarioPersonal.turnoVerFecha}" />
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="#{calendarioPersonal.turnoSeccionVer}"
+							value="Confirmar selección verano"/>
+		</div>
+		</h:form>
+		<h:form>
+    	<div>
+    	      <i><b><font size="3" face="Century" >&nbsp;Turno invierno&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></b></i> 
+    		  <h:selectOneMenu id="combo2" value="#{calendarioPersonal.turnoInvFecha}">
+              <f:selectItem itemLabel="Seleccionar ..."  noSelectionOption="false"/>
+              <f:selectItems value="#{calendarioPersonal.periodosVacaInv}" var="turnoInv" itemValue="#{turnoInv.fechaInicio}" itemLabel="#{turnoInv.fechaInicio}" />
+              <f:ajax execute="combo2" render="textbox2" />
+              </h:selectOneMenu>
+              <h:inputText id="textbox2" value="#{calendarioPersonal.turnoInvFecha}" />
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="#{calendarioPersonal.turnoSeccionInv}"
+							value="Confirmar selección invierno"/>
+		</div>
+		</h:form>
+    	<br/>
+    	<h:form>
+		<table class="mes" bgcolor="Black" border="1" width="48%" >
+		
+		<thead>	
+		
+		<tr>
+		<th class="mes-header" scope="col"><font color="Yellow">TURNO</font></th>
+		<th class="mes-header" scope="col"><font color="Yellow">VERANO</font></th>
+		<th class="mes-header" scope="col"><font color="Yellow">INVIERNO</font></th>
+		</tr>
+
+		</thead>
+		<h:body>		
+        <tr>
+        	<td width="16%">
+				<font color="white">1</font>
+			</td>
+			<td width="16%">
+				<font color="white"><h:outputText value="#{calendarioPersonal.turnoV1}" /></font>
+			</td>
+			<td width="16%">
+				<font color="white"><h:outputText value="#{calendarioPersonal.turnoI1}" /></font>
+			</td>
+		</tr>
+		<tr>
+			<td width="16%">
+				<font color="white">2</font>
+			</td>
+			<td width="16%">
+				<font color="white"><h:outputText value="#{calendarioPersonal.turnoV2}" /></font>
+			</td>
+			<td width="16%">
+				<font color="white"><h:outputText value="#{calendarioPersonal.turnoI2}" /></font>
+			</td> 
+		</tr>
+		<tr>
+			<td width="16%">
+				<font color="white">3</font>
+			</td>             
+			<td width="16%">
+				<font color="white"><h:outputText value="#{calendarioPersonal.turnoV3}" /></font>
+			</td>
+			<td width="16%">
+				<font color="white"><h:outputText value="#{calendarioPersonal.turnoI3}" /></font>
+			</td>
+		</tr>
+		<tr>
+			<td width="16%">
+				<font color="white">4</font>
+			</td>
+			<td width="16%">
+				<font color="white"><h:outputText value="#{calendarioPersonal.turnoV4}" /></font>
+			</td>
+			<td width="16%">
+				<font color="white"><h:outputText value="#{calendarioPersonal.turnoI4}" /></font>
+			</td>
+		</tr>
+		<tr>
+			<td width="16%">
+				<font color="white">5</font>
+			</td>
+			<td width="16%">
+				<font color="white"><h:outputText value="#{calendarioPersonal.turnoV5}" /></font>
+			</td>             
+			<td width="16%">
+				<font color="white"><h:outputText value="#{calendarioPersonal.turnoI5}" /></font>
+			</td>
+		</tr>
+		<tr>
+			<td width="16%">
+				<font color="white">6</font>
+			</td>
+			<td width="16%">
+				<font color="white"><h:outputText value="#{calendarioPersonal.turnoV6}" /></font>
+			</td>
+			<td width="16%">
+				<font color="white"><h:outputText value="#{calendarioPersonal.turnoI6}" /></font>
+			</td>
+		</tr>
+		<tr>
+			<td width="16%">
+				<font color="white">7</font>
+			</td>
+			<td width="16%">
+				<font color="white"><h:outputText value="#{calendarioPersonal.turnoV7}" /></font>
+			</td>
+			<td width="16%">
+				<font color="white"><h:outputText value="#{calendarioPersonal.turnoI7}" /></font>
+			</td>             
+        </tr>
+         <tr>
+			<td width="16%">
+				<font color="white">8</font>
+			</td>
+			<td width="16%">
+				<font color="white"><h:outputText value="#{calendarioPersonal.turnoV8}" /></font>
+			</td>
+			<td width="16%">
+				<font color="white"><h:outputText value="#{calendarioPersonal.turnoI8}" /></font>
+			</td>
+		</tr>
+		<tr>
+			<td width="16%">
+				<font color="white">9</font>
+			</td>
+			<td width="16%">
+				<font color="white"><h:outputText value="#{calendarioPersonal.turnoV9}" /></font>
+			</td>
+			<td width="16%">
+				<font color="white"><h:outputText value="#{calendarioPersonal.turnoI9}" /></font>
+			</td> 
+		 </tr>
+         <tr>
+			<td width="16%">
+				<font color="white">10</font>
+			</td>
+			<td width="16%">
+				<font color="white"><h:outputText value="#{calendarioPersonal.turnoV10}" /></font>
+			</td>
+			<td width="16%">
+				<font color="white"><h:outputText value="#{calendarioPersonal.turnoI10}" /></font>
+			</td>
+		</tr>
+        </h:body>
+        </table>
+		<br/>
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="#{calendarioPersonal.salvarCalendarioVacacional}"
+							value="Enviar propuesta"/>
+				</div>
+		</h:form>
+		<h:form>
+				<div>
+	        	<p align="center"/><font color="red"><h:outputText value="#{calendarioPersonal.resultadoINC}"/> </font>
+	        	<p align="center"/><font color="green"><h:outputText value="#{calendarioPersonal.resultadoCOR}"/> </font>
+        	    </div>		
+            <p align="center">
+				<h:commandLink value="Menú calendarios" action="menuCalendariosView.html" />
+			</p>
+			<p align="center">
+				<h:commandLink value="Menú principal" action="homeTeamWorkPlannerView.html" />
+			</p>
+		</h:form>
+		</center>	
+	</ui:define>
+</ui:composition>
+</html>

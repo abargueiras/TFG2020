@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+   <f:metadata>
+   <f:viewParam name="idRot" value="#{listaRotacionesSeccion.idRot}" />
+   <f:viewAction action="#{listaRotacionesSeccion.eliminarRotacion}" />
+   </f:metadata>
+  <ui:composition template="./headerTeamWorkPlannerView.xhtml">
+	<ui:define name="content">
+	 <center>
+	  <br/>
+	  <h:form align="left">
+	  <h:inputText value="#{listaRotacionesSeccion.rotacionBuscada}"/> 
+	  <h:commandButton value="¡Filtrar id!" action="#{listaRotacionesSeccion.listaRotacionesFiltro()}"/>
+	  <h:commandButton value="¡Limpiar filtro!" action="#{listaRotacionesSeccion.limpiaFiltroLista}"/>
+	  <font color="red"><h:outputText value="#{listaRotacionesSeccion.resultadoInc}" /></font>
+	  <font color="green"><h:outputText value="#{listaRotacionesSeccion.resultadoCor}" /></font>
+	  </h:form>
+	   <br/>
+	  <h:form align="left" >	
+		<h:dataTable value="#{listaRotacionesSeccion.rotacionListaVista}" var="item" bgcolor="#F1F1F1" border="0" first="0" width="50%" frame="hsides" rules="all"  >
+ 			<f:facet name="header">			
+  			<h:outputText align="center" value="Listado rotaciones seccion." />		
+  			</f:facet> 
+ 			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="ID"/>
+   				</f:facet>
+     			<h:outputText value="#{item.id}" />
+ 			</h:column>  			
+ 			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="SECCION"/>
+   				</f:facet>
+     			<h:outputText value="#{item.seccion.nombre}" />
+ 			</h:column>
+  			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="TURNO"/>
+   				</f:facet>
+     			<h:outputText value="#{item.turno}" />
+ 			</h:column>			
+  			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="FECHA"/>
+   				</f:facet>
+     			<h:outputText value="#{item.fecha}" />
+ 			</h:column>	
+ 			<h:column>				
+ 			   	<f:facet name="header">
+   					<h:outputText value="Opciones"/>
+   				</f:facet> 
+  			<p>
+
+			<h:form rendered="#{usuario.rol eq 'encargado'}">
+ 					<h:link outcome="listaRotacionesSeccion" value="Eliminar" >
+						<f:param name="idRot" value="#{item.id}" />						
+					</h:link>
+					<h:outputText value=" &nbsp;" />
+					<h:link outcome="rotacionXSeccionView" value="Ver" >
+						<f:param name="idRot" value="#{item.id}" />						
+					</h:link>
+			</h:form>
+			<h:form rendered="#{usuario.rol eq 'jefeAlmacen'}"> 	
+					<h:link outcome="rotacionXSeccionView" value="Ver" >
+						<f:param name="idRot" value="#{item.id}" />						
+					</h:link>
+	        </h:form>
+	   	<h:form rendered="#{usuario.rol eq 'rrhh'}"> 	
+					<h:link outcome="rotacionXSeccionView" value="Ver" >
+						<f:param name="idRot" value="#{item.id}" />						
+					</h:link>
+	    </h:form>
+	   	<h:form rendered="#{usuario.rol eq 'jefeEquipo'}"> 	
+					<h:link outcome="rotacionXSeccionView" value="Ver" >
+						<f:param name="idRot" value="#{item.id}" />						
+					</h:link>
+	    </h:form>
+	    <h:form rendered="#{usuario.rol eq 'operario'}"> 	
+					<h:link outcome="rotacionXSeccionView" value="Ver" >
+						<f:param name="idRot" value="#{item.id}" />						
+					</h:link>
+	    </h:form>			
+			</p>				
+ 			</h:column>
+ 		</h:dataTable>
+ 	  </h:form>
+ 	   		<br/>
+ 		<h:form rendered="#{usuario.rol eq 'jefeAlmacen'}"> 	
+		<h:commandLink action="#{listaRotacionesSeccion.previousScreen}" value="Anterior" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink action="#{listaRotacionesSeccion.nextScreen}" value="Siguiente" />
+		<h:outputText value=" &nbsp; " />
+		<h:commandLink value="Menu rotaciones" action="menuRotacionesView.xhtml" />
+	    </h:form>
+	   	<h:form rendered="#{usuario.rol eq 'rrhh'}"> 	
+		<h:commandLink action="#{listaRotacionesSeccion.previousScreen}" value="Anterior" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink action="#{listaRotacionesSeccion.nextScreen}" value="Siguiente" />
+		<h:outputText value=" &nbsp; " />
+		<h:commandLink value="Menu rotaciones" action="menuRotacionesView.xhtml" />
+	    </h:form>
+	    <h:form rendered="#{usuario.rol eq 'encargado'}"> 	
+		<h:commandLink action="#{listaRotacionesSeccion.previousScreen}" value="Anterior" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink action="#{listaRotacionesSeccion.nextScreen}" value="Siguiente" />
+		<h:outputText value=" &nbsp; " />
+		<h:commandLink value="Menu rotaciones" action="menuRotacionesView.xhtml" />
+	    </h:form>
+	   	<h:form rendered="#{usuario.rol eq 'jefeEquipo'}"> 	
+		<h:commandLink action="#{listaRotacionesSeccion.previousScreen}" value="Anterior" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink action="#{listaRotacionesSeccion.nextScreen}" value="Siguiente" />
+				<h:outputText value=" &nbsp; " />
+		<h:commandLink value="Menu rotaciones" action="menuRotacionesView.xhtml" />
+	    </h:form>
+	    <h:form rendered="#{usuario.rol eq 'operario'}"> 	
+		<h:commandLink action="#{listaRotacionesSeccion.previousScreen}" value="Anterior" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink action="#{listaRotacionesSeccion.nextScreen}" value="Siguiente" />
+				<h:outputText value=" &nbsp; " />
+		<h:commandLink value="Menu rotaciones" action="menuRotacionesView.xhtml" />
+	    </h:form>
+	    	<h:form>
+	        	<div>
+	        	<p align="center"/><font color="red"><h:outputText value="#{updatepersonal.resultadoINC}"/> </font>
+	        	<p align="center"/><font color="green"><h:outputText value="#{updatepersonal.resultadoCOR}"/> </font>
+        		</div>
+	    	</h:form>
+	    	    
+ 	  </center>
+	</ui:define>
+  </ui:composition>
+</html>

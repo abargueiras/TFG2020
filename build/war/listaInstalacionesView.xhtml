@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+
+  <ui:composition template="./headerTeamWorkPlannerView.xhtml">
+	<ui:define name="content">
+	 <center>
+	  <h:form align="left">
+	  <h:inputText value="#{listaInstalaciones.nomBuscado}"/> 
+	  <h:commandButton value="¡Buscar instalacion!" action="#{listaInstalaciones.listaInstalacionesFiltro()}"/>
+	  <h:commandButton value="¡Limpiar filtro!" action="#{listaInstalaciones.limpiaFiltroLista}"/>
+	  <font color="red"><h:outputText value="#{listaInstalaciones.resultadoInc}" /></font>
+	  <font color="green"><h:outputText value="#{listaInstalaciones.resultadoCor}" /></font>
+	  </h:form>
+	   <br/>
+	  <h:form align="left" >	
+		<h:dataTable value="#{listaInstalaciones.instalacionesListaVista}" var="item" bgcolor="#F1F1F1" border="0" first="0" width="50%" frame="hsides" rules="all"  >
+ 			<f:facet name="header">			
+  			<h:outputText align="center" value="Listado de instalaciones:" />		
+  			</f:facet> 
+ 			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Identificador"/>
+   				</f:facet> 
+     			<h:outputText value="#{item.id}" />
+ 			</h:column>
+ 			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Nombre"/>
+   				</f:facet>
+     			<h:outputText value="#{item.nombre}" />
+ 			</h:column>
+ 			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Descripcion"/>
+   				</f:facet>
+     			<h:outputText value="#{item.descripcion}" />
+ 			</h:column>
+ 			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Seccion"/>
+   				</f:facet>
+     			<h:outputText value="#{item.seccion.nombre}" />
+ 			</h:column>
+ 			<h:column>
+ 			   	<f:facet name="header">
+   					<h:outputText value="Opciones"/>
+   				</f:facet> 
+ 			<p>
+ 			<h:form rendered="#{usuario.rol eq 'jefeAlmacen'}">
+ 			        <h:link outcome="verInstalacionView" value="Ver" >
+						<f:param name="idInstalacion" value="#{item.id}" />						
+					</h:link>
+					&nbsp;		
+					<h:link outcome="modificarInstalacionView" value="Modificar" >
+						<f:param name="idInstalacion" value="#{item.id}" />						
+					</h:link>
+					&nbsp;
+					<h:link outcome="eliminarInstalacion" value="Eliminar" >
+						<f:param name="idInstalacion" value="#{item.id}" />						
+					</h:link>
+			</h:form>
+			<h:form rendered="#{usuario.rol eq 'rrhh'}">
+ 			        <h:link outcome="verInstalacionView" value="Ver" >
+						<f:param name="idInstalacion" value="#{item.id}" />						
+					</h:link>
+			</h:form>
+			<h:form rendered="#{usuario.rol eq 'encargado'}">
+ 			        <h:link outcome="verInstalacionView" value="Ver" >
+						<f:param name="idInstalacion" value="#{item.id}" />						
+					</h:link>
+			</h:form>
+			<h:form rendered="#{usuario.rol eq 'jefeEquipo'}">
+ 			        <h:link outcome="verInstalacionView" value="Ver" >
+						<f:param name="idInstalacion" value="#{item.id}" />						
+					</h:link>
+			</h:form>	
+			<h:form rendered="#{usuario.rol eq 'operario'}">
+ 			        <h:link outcome="verInstalacionView" value="Ver" >
+						<f:param name="idInstalacion" value="#{item.id}" />						
+					</h:link>
+			</h:form>						
+			</p>				
+ 			</h:column>
+ 		</h:dataTable>
+ 	  </h:form>
+ 	   		<br/>
+ 		<h:form rendered="#{usuario.rol eq 'jefeAlmacen'}"> 	
+		<h:commandLink action="#{listaInstalaciones.previousScreen}" value="Anterior" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink action="#{listaInstalaciones.nextScreen}" value="Siguiente" />
+		<h:outputText value=" &nbsp; " />
+		<h:link outcome="crearInstalacionView" value="Crear instalación"></h:link>
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink value="Menu instalaciones" action="menuInstalacionesView.xhtml" />
+	    </h:form>
+	   	<h:form rendered="#{usuario.rol eq 'rrhh'}"> 	
+		<h:commandLink action="#{listaInstalaciones.previousScreen}" value="Anterior" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink action="#{listaInstalaciones.nextScreen}" value="Siguiente" />
+		<h:outputText value=" &nbsp; " />
+		<h:commandLink value="Menu instalaciones" action="menuInstalacionesView.xhtml" />
+	    </h:form>
+	    <h:form rendered="#{usuario.rol eq 'encargado'}"> 	
+		<h:commandLink action="#{listaInstalaciones.previousScreen}" value="Anterior" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink action="#{listaInstalaciones.nextScreen}" value="Siguiente" />
+		<h:outputText value=" &nbsp; " />
+		<h:commandLink value="Menu instalaciones" action="menuInstalacionesView.xhtml" />
+	    </h:form>
+	   	<h:form rendered="#{usuario.rol eq 'jefeEquipo'}"> 	
+		<h:commandLink action="#{listaInstalaciones.previousScreen}" value="Anterior" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink action="#{listaInstalaciones.nextScreen}" value="Siguiente" />
+		<h:outputText value=" &nbsp; " />
+		<h:commandLink value="Menu instalaciones" action="menuInstalacionesView.xhtml" />
+	    </h:form>
+	    <h:form rendered="#{usuario.rol eq 'operario'}"> 	
+		<h:commandLink action="#{listaInstalaciones.previousScreen}" value="Anterior" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink action="#{listaInstalaciones.nextScreen}" value="Siguiente" />
+		<h:outputText value=" &nbsp; " />
+		<h:commandLink value="Menu instalaciones" action="menuInstalacionesView.xhtml" />
+	    </h:form>	    
+ 	  </center>
+	</ui:define>
+  </ui:composition>
+</html>

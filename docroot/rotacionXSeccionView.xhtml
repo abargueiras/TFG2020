@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+   <f:metadata>
+   <f:viewParam name="idRot" value="#{rotacionX.numRotacion}" />
+   <f:viewAction action="#{rotacionX.verLista}" />
+   </f:metadata>
+  <ui:composition template="./headerTeamWorkPlannerView.xhtml">
+	<ui:define name="content">
+	 <center>
+
+	  <h:form align="left" >	
+		<h:dataTable value="#{rotacionX.rotacionListaVista}" var="item" bgcolor="#F1F1F1" border="0" first="0" width="60%" frame="hsides" rules="all"  >
+ 			<f:facet name="header">			
+  			<h:outputText align="center" value="ROTACION DEL DIA:" />		
+  			</f:facet> 
+  			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="IFecha"/>
+   				</f:facet> 
+     			<h:outputText value="#{item.fecha}" />
+ 			</h:column>
+  			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Instalacion"/>
+   				</f:facet> 
+     			<h:outputText value="#{item.puesto.instalacion.nombre}" />
+ 			</h:column>
+ 			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Puesto"/>
+   				</f:facet> 
+     			<h:outputText value="#{item.puesto.nombre}" />
+ 			</h:column>
+ 			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Nombre operario"/>
+   				</f:facet>
+     			<h:outputText value="#{item.operario.nombre}" />
+ 			</h:column>
+ 			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Apellidos operario"/>
+   				</f:facet>
+     			<h:outputText value="#{item.operario.apellidos}" />
+ 			</h:column>
+ 		</h:dataTable>
+ 	  </h:form>
+ 	   		<br/>
+ 		<h:form rendered="#{usuario.rol eq 'jefeAlmacen'}"> 	
+		<h:commandLink action="#{rotacionX.previousScreen}" value="Anterior" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink action="#{rotacionX.nextScreen}" value="Siguiente" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink value="Menu rotaciones" action="menuRotacionesView.xhtml" />
+	    </h:form>
+	   	<h:form rendered="#{usuario.rol eq 'rrhh'}"> 	
+		<h:commandLink action="#{rotacionX.previousScreen}" value="Anterior" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink action="#{rotacionX.nextScreen}" value="Siguiente" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink value="Menu rotaciones" action="menuRotacionesView.xhtml" />
+	    </h:form>
+	    <h:form rendered="#{usuario.rol eq 'encargado'}"> 	
+		<h:commandLink action="#{rotacionX.previousScreen}" value="Anterior" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink action="#{rotacionX.nextScreen}" value="Siguiente" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink value="Menu rotaciones" action="menuRotacionesView.xhtml" />
+	    </h:form>
+	   	<h:form rendered="#{usuario.rol eq 'jefeEquipo'}"> 	
+		<h:commandLink action="#{rotacionX.previousScreen}" value="Anterior" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink action="#{rotacionX.nextScreen}" value="Siguiente" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink value="Menu rotaciones" action="menuRotacionesView.xhtml" />
+	    </h:form>
+	    <h:form rendered="#{usuario.rol eq 'operario'}"> 	
+		<h:commandLink action="#{rotacionX.previousScreen}" value="Anterior" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink action="#{rotacionX.nextScreen}" value="Siguiente" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink value="Menu rotaciones" action="menuRotacionesView.xhtml" />	 
+		</h:form> 
+			 <h:form>
+	        	<div>
+	        	<p align="center"/><font color="red"><h:outputText value="#{rotacionX.resultadoInc}"/> </font>
+	        	<p align="center"/><font color="green"><h:outputText value="#{rotacionX.resultadoCor}"/> </font>
+        		</div>
+	    	</h:form>
+		  
+ 	  </center>
+	</ui:define>
+  </ui:composition>
+</html>

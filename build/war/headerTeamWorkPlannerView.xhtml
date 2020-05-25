@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>TeamWorkPlanner</title>
+</h:head>
+
+<h:body>
+ <div id="layout">
+	<div id="top" class="top">
+		<ui:insert name="top">
+			<center>
+				<h:form>
+					<h:commandLink action="homeTeamWorkPlannerView?faces-redirect=true">
+					    <div style="margin-top: 30px;">
+						<center>
+						<h:graphicImage border="0" url="resources/images/TeamWorkPlanner.gif" width="175"/>
+						</center>
+						</div>
+						<div style="margin-top: 5px;">
+						<center>
+						<h:graphicImage border="0" url="resources/images/monigotes.gif" width="50"/>
+						</center>
+						</div>
+					</h:commandLink>
+				</h:form>
+			</center>
+		</ui:insert>
+	</div>	
+	<div id="content">
+		<ui:insert name="content">Content</ui:insert>
+	</div>
+ </div>
+</h:body>
+</html>

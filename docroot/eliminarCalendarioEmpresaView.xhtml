@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+   <f:metadata>
+   <f:viewParam name="idCal" value="#{calendarioEmpresa.ano}" />
+   </f:metadata>
+<ui:composition template="./headerTeamWorkPlannerView.xhtml">
+	<ui:define name="content">
+	
+		<style>
+			.boto_opcio_menu
+			{
+				margin-top:25px;
+			}
+		</style>
+		
+		<div style="display: block;vertical-align: top;text-align: center;width:400px;margin:auto;">
+		
+		<center>
+		
+		<table style="display: inline-block;" >
+		<tr>
+			<td rowspan="1" colspan="1">
+				<div class="content" align="center">
+					<h1>ELIMINAR CALENDARIO EMPRESA:</h1>
+				</div>
+			</td>
+		</tr>	
+		</table>
+            <h:form>
+ 			<div align="center">
+				<table width="350" id="table1" cellpadding="0" cellspacing="0" border="0" style="margin-top:30px;" align="center">
+					<tr>
+						<td width="155">
+							<p align="left"/><i><b><font size="4" face="Century">Año:</font></b></i>
+						</td>
+						<td>
+							<p align="left"/><h:outputText value="#{calendarioEmpresa.ano}" />
+						</td>
+					</tr>
+					</table>
+			<br/>
+					<div>
+		        		<h:commandButton 
+						action ="#{calendarioEmpresa.eliminarCalendarioEmpresa}" value="ELIMINAR"/>
+		    		</div>
+				</div>
+ 		   </h:form>
+			<br/>
+	    	<h:form>
+	        	<div>
+	        	<p align="center"/><font color="red"><h:outputText value="#{calendarioEmpresa.resultadoINC}"/> </font>
+	        	<p align="center"/><font color="green"><h:outputText value="#{calendarioEmpresa.resultadoCOR}"/> </font>
+        		</div>
+	    	</h:form>
+	    	<br/>				
+			</center>
+			<h:form>
+			<p align="center">
+			<h:commandLink value="Lista de calendarioEmpresa" action="listaCalendariosEmpresa.html" />
+			</p>
+			<p align="center">
+				<h:commandLink value="Menú calendarios" action="menuCalendariosView.html" />
+			</p>
+			<p align="center">
+				<h:commandLink value="Menú principal" action="homeTeamWorkPlannerView.html" />
+			</p>
+			</h:form>
+			</div>		
+	</ui:define>
+</ui:composition>
+</html>

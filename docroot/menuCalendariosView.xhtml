@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="./headerTeamWorkPlannerView.xhtml">
+	<ui:define name="content">
+	
+		<style>
+			.boto_opcio_menu
+			{
+				margin-top:25px;
+			}
+		</style>
+		
+		<div style="display: block;vertical-align: top;text-align: center;width:400px;margin:auto;">
+		
+		<center>
+		
+		<table style="display: inline-block;" >
+		<tr>
+			<td rowspan="1" colspan="1">
+				<div class="content" align="center">
+					<h1>MENU CALENDARIOS: </h1>
+				</div>
+			</td>
+		</tr>	
+		</table>
+		
+		
+			<h:form rendered="#{usuario.rol eq 'rrhh'}">
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="crearCalendarioEmpresaAnual.xhtml"
+							value="     Creación calendario empresa    "/>
+				</div>	
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="calendarioEmpresaAnual.xhtml"
+							value="         Ver calendario empresa         "/>
+				</div>			
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="listaCalendariosEmpresa.xhtml"
+							value="Mantenimiento calendario empresa"/>
+				</div>
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="crearCalendarioSeccion.xhtml"
+							value="      Creación calendario seccion     "/>
+				</div>
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="listaCalendariosSeccion.xhtml"
+							value=" Mantenimiento calendario seccion "/>
+				</div>				
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="listaOperariosView.xhtml"
+							value=" Mantenimiento calendario operario "/>
+				</div>
+			</h:form>
+			
+			<h:form rendered="#{usuario.rol eq 'jefeAlmacen'}">
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="calendarioEmpresaAnual.xhtml"
+							value="         Ver calendario empresa         "/>
+				</div>			
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="listaCalendariosEmpresa.xhtml"
+							value="Mantenimiento calendario empresa"/>
+				</div>
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="listaCalendariosSeccion.xhtml"
+							value=" Mantenimiento calendario seccion "/>
+				</div>
+			</h:form>
+			<h:form rendered="#{usuario.rol eq 'encargado'}">
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="calendarioEmpresaAnual.xhtml"
+							value="         Ver calendario empresa         "/>
+				</div>	
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="listaCalendariosSeccion.xhtml"
+							value=" Mantenimiento calendario seccion "/>
+				</div>
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="#{listcaps.listCAPs}"
+							value="        Ver calendarios operarios       "/>
+				</div>				
+			</h:form>
+			<h:form rendered="#{usuario.rol eq 'jefeEquipo'}">
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="calendarioEmpresaAnual.xhtml"
+							value="         Ver calendario empresa         "/>
+				</div>	
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="listaCalendariosSeccion.xhtml"
+							value=" Mantenimiento calendario seccion "/>
+				</div>
+			</h:form>
+			<h:form rendered="#{usuario.rol eq 'operario'}">
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="calendarioEmpresaAnual.xhtml"
+							value="         Ver calendario empresa         "/>
+				</div>	
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="calendarioPersonal.xhtml"
+							value="                 Ver calendario                 "/>
+				</div>
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="solicitarTurnoVacacional.xhtml"
+							value="            Solicitar vacaciones            "/>
+				</div>
+				
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="right" 
+							action ="solicitarDiaPersonalView.xhtml"
+							value="           Solicitar dia personal           "/>
+				</div>
+			</h:form>
+			</center>
+			<h:form>
+			<p align="center">
+				<h:commandLink value="Menú pricipal" action="homeTeamWorkPlannerView.html" />
+			</p>
+			</h:form>
+			</div>
+		
+	</ui:define>
+</ui:composition>
+</html>

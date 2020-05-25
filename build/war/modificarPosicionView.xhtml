@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+   <f:metadata>
+   <f:viewParam  name="idPosicion" value="#{modPosicion.id}" />
+   </f:metadata>
+<ui:composition template="./headerTeamWorkPlannerView.xhtml">
+	<ui:define name="content">
+	
+		<style>
+			.boto_opcio_menu
+			{
+				margin-top:25px;
+			}
+		</style>
+		
+		<div style="display: block;vertical-align: top;text-align: center;width:400px;margin:auto;">
+			<center>
+			<h1>POSICION A MODIFICAR:</h1>
+            <h:form >
+ 			<div align="center">
+				<table width="350" id="table1" cellpadding="0" cellspacing="0" border="0" style="margin-top:30px;" align="center">
+					<tr>
+						<td width="155">
+							<p align="left"/><i><b><font size="4" face="Century">NOMBRE:</font></b></i>
+						</td>
+						<td>
+							<p align="left"/><h:inputText value="#{modPosicion.nombre}" />
+						</td>
+					</tr>
+					<tr>
+						<td width="155">
+							<p align="left"/><i><b><font size="4" face="Century">DESCRIPCION:</font></b></i>
+						</td>
+						<td>
+							<p align="left"/><h:inputTextarea cols="30" rows="5" value="#{modPosicion.descripcion}" />
+						</td>
+					</tr>
+					<tr>
+						<td width="155">
+							<p align="left"/>&nbsp;&nbsp;<i><b><font size="4" face="Century">NUM.OPERARIOS:</font></b></i>
+						</td>
+						<td>
+							<p align="left"/><h:inputText value="#{modPosicion.numOperarios}" />
+						</td>
+					</tr>
+					</table>
+					</div>
+				<table>
+					<tr>
+						<td width="75">
+							<p align="center"/><i><b><font size="4" face="Century">REQUERIDO:     </font></b></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <h:selectOneMenu value = "#{modPosicion.requerido}">	
+						<f:selectItem itemValue = "true" itemLabel = "Si" />
+						<f:selectItem itemValue = "false" itemLabel = "No" />
+						</h:selectOneMenu>
+						</td>
+					</tr>
+				</table>
+				<div>
+					<p align="center"/><i><b><font size="4" face="Century">INSTALACION:</font></b></i>
+						  <h:selectOneMenu id="combo1" value="#{modPosicion.instalacionId}">
+                          <f:selectItem itemLabel="Seleccionar ..."  noSelectionOption="false"/>
+                          <f:selectItems value="#{modPosicion.instalaciones}" var="instalacion" itemValue="#{instalacion.id}" itemLabel="#{instalacion.nombre}" />
+                          <f:ajax execute="combo1" render="textbox1" />
+                          </h:selectOneMenu>
+                          <h:inputText style="visibility: hidden" id="textbox1" value="#{modPosicion.instalacionId}" />
+				          <h:commandButton 
+				  		    	class="boto_opcio_menu"
+				     			align="right" 
+				    			action ="#{modPosicion.nombreInstalacion}"
+					    		value="Confirmar selección"/>
+			    </div>
+			    <h:form>
+					<div>
+					<br/>
+					<h:commandButton 
+							action ="#{modPosicion.modificarPuesto}" value="MODIFICAR"/>
+	        	<p align="center"/><font color="red"><h:outputText value="#{modPosicion.resultadoInc}"/> </font>
+	        	<p align="center"/><font color="green"><h:outputText value="#{modPosicion.resultadoCor}"/> </font>
+        		</div>
+	    	</h:form>
+			    	
+			</h:form>				
+			<h:form>
+			<p align="center">
+			<h:commandLink value="Lista posiciones" action="listaPosicionesView.html" />
+			</p>
+			<p align="center">
+				<h:commandLink value="Menú instalaciones" action="menuInstalacionesView.html" />
+			</p>
+			<p align="center">
+				<h:commandLink value="Menú principal" action="homeTeamWorkPlannerView.html" />
+			</p>
+			</h:form>
+ 		   </center>
+			</div>		
+	</ui:define>
+</ui:composition>
+</html>

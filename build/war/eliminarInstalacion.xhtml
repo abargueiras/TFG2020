@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+   <f:metadata>
+   <f:viewParam  name="idInstalacion" value="#{instalacion.id}" />
+   <f:viewAction action="#{instalacion.verInstalacion}" />
+   </f:metadata>
+<ui:composition template="./headerTeamWorkPlannerView.xhtml">
+	<ui:define name="content">
+	
+		<style>
+			.boto_opcio_menu
+			{
+				margin-top:25px;
+			}
+		</style>
+		
+		<div style="display: block;vertical-align: top;text-align: center;width:400px;margin:auto;">
+		
+		<center>
+		
+		<table style="display: inline-block;" >
+		<tr>
+			<td rowspan="1" colspan="1">
+				<div class="content" align="center">
+					<h1>INSTALACIÓN:</h1>
+				</div>
+			</td>
+		</tr>	
+		</table>
+		
+		
+			<h:form>
+ 			<div align="center">
+				<table width="350" id="table1" cellpadding="0" cellspacing="0" border="0" style="margin-top:30px;" align="center">
+					<tr>
+						<td width="155">
+							<p align="left"/><i><b><font size="4" face="Century">ID:</font></b></i>
+						</td>
+						<td>
+							<p align="left"/><h:outputText value="#{instalacion.instalacion.id}" />
+						</td>
+					</tr>
+					<tr>
+						<td width="155">
+							<p align="left"/><i><b><font size="4" face="Century">NOMBRE:</font></b></i>
+						</td>
+						<td>
+							<p align="left"/><h:outputText value="#{instalacion.instalacion.nombre}" />
+						</td>
+					</tr>
+					<tr>
+						<td width="155">
+							<p align="left"/><i><b><font size="4" face="Century">DESCRIPCION:</font></b></i>
+						</td>
+						<td>
+							<p align="left"/><h:outputText value="#{instalacion.instalacion.descripcion}" />
+						</td>
+					</tr>
+					</table>
+			<br/>
+					<div>
+		        		<h:commandButton 
+						action ="#{instalacion.eliminarInstalacion}" value="ELIMINAR"/>
+		    		</div>
+				</div>
+ 		   </h:form>
+			<br/>
+	    	<h:form>
+	        	<div>
+	        	<p align="center"/><font color="red"><h:outputText value="#{instalacion.resultadoInc}"/> </font>
+	        	<p align="center"/><font color="green"><h:outputText value="#{instalacion.resultadoCor}"/> </font>
+        		</div>
+	    	</h:form>
+	    	<br/>	
+			</center>
+			<h:form>
+			<p align="center">
+			<h:commandLink value="Lista instalaciones" action="listaInstalacionesView.html" />
+			</p>
+			<p align="center">
+				<h:commandLink value="Menú instalaciones" action="menuInstalacionesView.html" />
+			</p>
+			<p align="center">
+				<h:commandLink value="Menú principal" action="homeTeamWorkPlannerView.html" />
+			</p>
+			</h:form>
+			</div>		
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="./headerTeamWorkPlannerView.xhtml">
+	<ui:define name="content">
+	
+		<style>
+			.boto_opcio_menu
+			{
+				margin-top:25px;
+			}
+		</style>
+		
+		<div style="display: block;vertical-align: top;text-align: center;width:400px;margin:auto;">
+		
+		<center>
+		
+		<table style="display: inline-block;" >
+		<tr>
+			<td rowspan="1" colspan="1">
+				<div class="content" align="center">
+					<h1>SECCION A CREAR:</h1>
+				</div>
+			</td>
+		</tr>	
+		</table>
+		<h:form>
+ 			<div align="center">
+				<table width="350" id="table1" cellpadding="0" cellspacing="0" border="0" style="margin-top:10px;" align="center">
+					<tr>
+						<td width="155">
+							<p align="left"/><i><b><font size="4" face="Century">NOMBRE:</font></b></i>
+						</td>
+						<td>
+							<p align="left"/><h:inputText value="#{seccion.dataSeccion.nombre}" />
+						</td>
+					</tr>
+					<tr>
+						<td width="155">
+							<p align="left"/><i><b><font size="4" face="Century">DESCRIPCIÓN:</font></b></i>
+						</td>
+						<td>
+						<p align="left"/><h:inputTextarea cols="30" rows="10" 
+							value="#{seccion.dataSeccion.descripcion}" />
+						</td>
+					</tr>
+					<tr>
+						<td width="155">
+							<p align="left"/><i><b><font size="4" face="Century">TURNO:</font></b></i>
+						</td>
+						<td>
+						<i><b><font size="2" face="Century" color="blue">Seleccionar turno:</font></b></i><br/>
+						<h:selectOneMenu value = "#{seccion.dataSeccion.turno}">
+						<f:selectItem itemValue = "Mañana" itemLabel = "MAÑANA" />
+						<f:selectItem itemValue = "Tarde" itemLabel = "TARDE" />
+						<f:selectItem itemValue = "Noche"  itemLabel = "NOCHE" />
+						</h:selectOneMenu>
+						</td>
+					</tr>
+					</table>
+					</div>
+					<div>
+					<br/>
+					<h:commandButton 
+							action ="#{seccion.crearSeccion}" value="CREAR SECCIÓN"/>
+				   </div>
+ 		   </h:form>
+	    	<h:form>
+	        	<div>
+	        	<p align="center"/><font color="red"><h:outputText value="#{seccion.resultadoInc}"/> </font>
+	        	<p align="center"/><font color="green"><h:outputText value="#{seccion.resultadoCor}"/> </font>
+        		</div>
+	    	</h:form>
+				
+			</center>
+			<h:form>
+			<p align="center">
+				<h:commandLink value="Menú secciones" action="menuEquiposView.html" />
+			</p>
+			<p align="center">
+				<h:commandLink value="Menú principal" action="homeTeamWorkPlannerView.html" />
+			</p>
+			</h:form>
+			</div>		
+	</ui:define>
+</ui:composition>
+</html>

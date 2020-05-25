@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="./headerTeamWorkPlannerView.xhtml">
+	<ui:define name="content">
+	
+		<style>
+			.boto_opcio_menu
+			{
+				margin-top:25px;
+			}
+		</style>
+		
+		<div style="display: block;vertical-align: top;text-align: center;width:400px;margin:auto;">
+		
+		<center>
+		
+		<table style="display: inline-block;" >
+		<tr>
+			<td rowspan="1" colspan="1">
+				<div class="content" align="center">
+					<h1>MENU EQUIPOS:</h1>
+				</div>
+			</td>
+		</tr>	
+		</table>
+		
+		
+			<h:form rendered="#{usuario.rol eq 'jefeAlmacen'}">
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="center" 
+							action ="crearSeccionView.xhtml"
+							value="               Crear sección              "/>
+				</div>
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="center" 
+							action ="listaSeccionesView.xhtml"
+							value="      Mantenimiento secciones     "/>
+				</div>				
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="center" 
+							action ="listaSeccionConInstalaciones.xhtml"
+							value=" Asignacion instalación a sección "/>
+				</div>
+			</h:form>			
+			<h:form rendered="#{usuario.rol eq 'rrhh'}">
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="center" 
+							action ="listaSeccionesView.xhtml"
+							value="          Ver secciones         "/>
+				</div> 		
+			</h:form>
+			<h:form rendered="#{usuario.rol eq 'encargado'}">
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="center" 
+							action ="listaSeccionesView.xhtml"
+							value="          Ver secciones         "/>
+				</div>
+			</h:form>
+			<h:form rendered="#{usuario.rol eq 'operario'}">
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="center" 
+							action ="listaSeccionesView.xhtml"
+							value="          Ver secciones         "/>
+				</div>
+			</h:form>	
+			<h:form rendered="#{usuario.rol eq 'jefeEquipo'}">
+				<div>
+					<h:commandButton 
+				  			class="boto_opcio_menu"
+							align="center" 
+							action ="listaSeccionesView.xhtml"
+							value="          Ver secciones         "/>
+				</div>
+			</h:form>						
+			</center>
+			<h:form>
+			<p align="center">
+				<h:commandLink value="Menú pricipal" action="homeTeamWorkPlannerView.html" />
+			</p>
+			</h:form>
+			</div>		
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+   <f:metadata>
+   <f:viewParam name="idTur" value="#{listaTurnosVacacionales.fechaIni}" />
+   <f:viewAction action="#{listaTurnosVacacionales.eliminaTurnoVacacionalEmpresa()}" />
+   </f:metadata>
+  <ui:composition template="./headerTeamWorkPlannerView.xhtml">
+	<ui:define name="content">
+	 <center>
+	  <br/>
+	  <h:form align="left">
+	  <h:inputText value="#{listaTurnosVacacionales.turnoBuscado}"/> 
+	  <h:commandButton value="¡Buscar año!" action="#{listaTurnosVacacionales.listaTurnosFiltro()}"/>
+	  <h:commandButton value="¡Limpiar filtro!" action="#{listaTurnosVacacionales.limpiaFiltroLista}"/>
+	  <font color="red"><h:outputText value="#{listaTurnosVacacionales.resultadoInc}" /></font>
+	  <font color="green"><h:outputText value="#{listaTurnosVacacionales.resultadoCor}" /></font>
+	  </h:form>
+	   <br/>
+	  <h:form align="left" >	
+		<h:dataTable value="#{listaTurnosVacacionales.turnosVacacionalesListaVista}" var="item" bgcolor="#F1F1F1" border="0" first="0" width="50%" frame="hsides" rules="all"  >
+ 			<f:facet name="header">			
+  			<h:outputText align="center" value="Listado de calendarios empresa:" />		
+  			</f:facet> 
+ 			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="AÑO"/>
+   				</f:facet>
+     			<h:outputText value="#{item.calendarioEmpresa.id}" />
+ 			</h:column>
+  			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Fecha inicio"/>
+   				</f:facet>
+     			<h:outputText value="#{item.fechaInicio}" />
+ 			</h:column>
+  			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Fecha fin"/>
+   				</f:facet>
+     			<h:outputText value="#{item.fechaFin}" />
+ 			</h:column>	 	
+   			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Turno"/>
+   				</f:facet>
+     			<h:outputText value="#{item.temporada}" />
+ 			</h:column>								
+ 			<h:column>				
+ 			   	<f:facet name="header">
+   					<h:outputText value="Opciones"/>
+   				</f:facet> 
+  			<p>
+ 			<h:form rendered="#{usuario.rol eq 'rrhh'}">
+ 					<h:link outcome="calendarioEmpresaAnual" value="Ver año" >
+						<f:param name="idCal" value="#{item.calendarioEmpresa.id}" />						
+					</h:link>
+					&nbsp;
+					<h:link outcome="listaTurnosVacacionalesView" value="Eliminar" >
+						<f:param name="idTur" value="#{item.fechaInicio}" />						
+					</h:link>
+			</h:form>
+			<h:form rendered="#{usuario.rol eq 'jefeAlmacen'}">
+					<h:link outcome="calendarioEmpresaAnual" value="Ver año" >
+						<f:param name="idCal" value="#{item.calendarioEmpresa.id}" />						
+					</h:link>
+			</h:form>
+			<h:form rendered="#{usuario.rol eq 'encargado'}">
+					<h:link outcome="calendarioEmpresaAnual" value="Ver año" >
+						<f:param name="idCal" value="#{item.calendarioEmpresa.id}" />						
+					</h:link>
+			</h:form>
+			<h:form rendered="#{usuario.rol eq 'jefeEquipo'}">
+					<h:link outcome="calendarioEmpresaAnual" value="Ver año" >
+						<f:param name="idCal" value="#{item.calendarioEmpresa.id}" />						
+					</h:link>
+			</h:form>	
+			<h:form rendered="#{usuario.rol eq 'operario'}">
+					<h:link outcome="calendarioEmpresaAnual" value="Ver año" >
+						<f:param name="idCal" value="#{item.calendarioEmpresa.id}" />						
+					</h:link>
+			</h:form>						
+			</p>				
+ 			</h:column>
+ 		</h:dataTable>
+ 	  </h:form>
+ 	   		<br/>
+ 		<h:form rendered="#{usuario.rol eq 'jefeAlmacen'}"> 	
+		<h:commandLink action="#{listaTurnosVacacionales.previousScreen}" value="Anterior" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink action="#{listaTurnosVacacionales.nextScreen}" value="Siguiente" />
+		<h:outputText value=" &nbsp; " />
+		<h:commandLink value="Menu calendarios" action="menuCalendariosView.xhtml"  />
+	    </h:form>
+	   	<h:form rendered="#{usuario.rol eq 'rrhh'}"> 	
+		<h:commandLink action="#{listaTurnosVacacionales.previousScreen}" value="Anterior" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink action="#{listaTurnosVacacionales.nextScreen}" value="Siguiente" />
+		<h:outputText value=" &nbsp; " />
+		<h:commandLink value="Menu Calendarios" action="menuCalendariosView.xhtml" />
+	    </h:form>
+	    <h:form rendered="#{usuario.rol eq 'encargado'}"> 	
+		<h:commandLink action="#{listaTurnosVacacionales.previousScreen}" value="Anterior" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink action="#{listaTurnosVacacionales.nextScreen}" value="Siguiente" />
+		<h:outputText value=" &nbsp; " />
+		<h:commandLink value="Menu Calendarios" action="menuCalendariosView.xhtml" />
+	    </h:form>
+	   	<h:form rendered="#{usuario.rol eq 'jefeEquipo'}"> 	
+		<h:commandLink action="#{listaTurnosVacacionales.previousScreen}" value="Anterior" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink action="#{listaTurnosVacacionales.nextScreen}" value="Siguiente" />
+		<h:outputText value=" &nbsp; " />
+		<h:commandLink value="Menu Calendarios" action="menuCalendariosView.xhtml" />
+	    </h:form>
+	    <h:form rendered="#{usuario.rol eq 'operario'}"> 	
+		<h:commandLink action="#{listaTurnosVacacionales.previousScreen}" value="Anterior" />
+		<h:outputText value=" &nbsp;" />
+		<h:commandLink action="#{listaTurnosVacacionales.nextScreen}" value="Siguiente" />
+		<h:outputText value=" &nbsp; " />
+		<h:commandLink value="Menu Calendarios" action="menuCalendariosView.xhtml" />
+	    </h:form>	    
+ 	  </center>
+	</ui:define>
+  </ui:composition>
+</html>
