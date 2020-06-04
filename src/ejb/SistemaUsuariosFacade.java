@@ -43,9 +43,9 @@ public class SistemaUsuariosFacade implements SistemaUsuariosFacadeRemote {
 		String usuarioNombre = "";
 		
 	/*Usuario para iniciar las pruebas que no esta creado en la B.D
-	 *se podr· probar la BD, creando los diferentes tipos de usario. 
-	 *Tomar· el rol de RRHH ya que este tipo de usuario se encarga 
-	 *de la gestiÛn del personal de almacen. La primera tarea ser· la creaciÛn 
+	 *se podr√° probar la BD, creando los diferentes tipos de usario. 
+	 *Tomar√° el rol de RRHH ya que este tipo de usuario se encarga 
+	 *de la gesti√≥n del personal de almacen. La primera tarea ser√° la creaci√≥n 
 	 *en el sistema de un usuario de RRHH.
 	 */
 		if(id==-1234 & password.equals("administradorTW")) {
@@ -157,7 +157,7 @@ public class SistemaUsuariosFacade implements SistemaUsuariosFacadeRemote {
 			}		
 		if((rol.equals("operario") || rol.equals("jefeEquipo") || rol.equals("encargado"))&&(seccion==null)) {
 			
-				return "Falta seleccionar secciÛn";
+				return "Falta seleccionar secci√≥n";
 		}
 		if((rol.equals("operario") || rol.equals("jefeEquipo")) && (turno==null)) {
 				return "Turno no encontrado";
@@ -169,7 +169,7 @@ public class SistemaUsuariosFacade implements SistemaUsuariosFacadeRemote {
 			nuevo = new OperarioJPA(id,nif,nombre,apellidos,password,email,fecha,turno,seccion);
 			}
 			catch (Exception e) {
-				return "Operario sin turno o secciÛn";	
+				return "Operario sin turno o secci√≥n";	
 			}
 			entman.persist(nuevo);
 			}
@@ -179,7 +179,7 @@ public class SistemaUsuariosFacade implements SistemaUsuariosFacadeRemote {
     		nuevo = new JefeEquipoJPA(id,nif,nombre,apellidos,password,email,fecha,turno,seccion);
 			}
 			catch (Exception e) {
-				return "Jefe de equipo sin turno o secciÛn";	
+				return "Jefe de equipo sin turno o secci√≥n";	
 			}
     		entman.persist(nuevo);
            	}
@@ -189,7 +189,7 @@ public class SistemaUsuariosFacade implements SistemaUsuariosFacadeRemote {
     		nuevo = new EncargadoJPA(id,nif,nombre,apellidos,password,email,fecha,seccion);
     		}
 			catch (Exception e) {
-				return "Encargado sin secciÛn";	
+				return "Encargado sin secci√≥n";	
 			}
    			entman.persist(nuevo);				
        		}
@@ -346,7 +346,7 @@ public class SistemaUsuariosFacade implements SistemaUsuariosFacadeRemote {
 		boolean resultat = false; //ens diu si hem pugut eliminar la visita
 		String tipo=getTipoPersonal(idUs);
 		if(tipo=="operario") {
-			Query query = entman.createQuery("DELETE FROM CalendarioPersonalJPA WHERE id = " + idUs);
+			Query query = entman.createQuery("DELETE FROM CalendarioPersonalJPA WHERE operario_id = " + idUs);
 			query.executeUpdate();
 		}
 		Query query2 = entman.createQuery("DELETE FROM PersonalJPA WHERE id = " + idUs);
